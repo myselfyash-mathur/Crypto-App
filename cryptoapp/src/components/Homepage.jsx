@@ -4,12 +4,14 @@ import { Typography, Row, Col, Statistic } from 'antd';
 import { Link } from 'react-router-dom';
 import { useGetCryptosQuery } from '../services/cryptoApi';
 import {Cryptocurrencies,News }from '../components';
+import { useGetCryptoNewsQuery } from '../services/cryptoNewsApi';
 
 const { Title } = Typography;
 
 const Homepage = () => {
 
   const { data, isFetching } = useGetCryptosQuery(10);
+  const { newsList, isNewsFetching } = useGetCryptoNewsQuery(10);
   console.log(data);
 
   const globalStats = data?.data?.stats;
